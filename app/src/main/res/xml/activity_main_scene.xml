@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        android:id="@+id/trans_1"
+        app:constraintSetEnd="@id/step2"
+        app:constraintSetStart="@id/step1"
+        app:duration="1000">
+        <OnSwipe
+            app:dragDirection="dragDown"
+            app:touchAnchorId="@id/layout_container_account"
+            app:touchAnchorSide="bottom" />
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="0"
+                app:motionTarget="@id/send_msg_button" />
+            <KeyAttribute
+                android:alpha="1"
+                app:framePosition="10"
+                app:motionTarget="@id/send_msg_button" />
+            <KeyAttribute
+                android:alpha="1"
+                app:framePosition="100"
+                app:motionTarget="@id/send_msg_button" />
+        </KeyFrameSet>
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="0"
+                app:motionTarget="@id/qr_code" />
+            <KeyAttribute
+                android:alpha="0.5"
+                app:framePosition="10"
+                app:motionTarget="@id/qr_code" />
+            <KeyAttribute
+                android:alpha="1"
+                app:framePosition="100"
+                app:motionTarget="@id/qr_code" />
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+        android:id="@+id/trans_2"
+        app:constraintSetEnd="@id/step3"
+        app:constraintSetStart="@id/step2"
+        app:duration="1000">
+        <OnSwipe
+            app:dragDirection="dragDown"
+            app:touchAnchorId="@id/layout_container_account"
+            app:touchAnchorSide="bottom" />
+    </Transition>
+
+    <ConstraintSet
+        android:id="@+id/step1"
+        android:visibility="visible">
+        <Constraint
+            android:id="@+id/top_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/user_name"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="@null"
+            android:elevation="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+            app:layout_constraintStart_toEndOf="@+id/image_preview"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout"
+            app:layout_constraintVertical_bias="0.2">
+            <CustomAttribute
+                app:attributeName="textSize"
+                app:customFloatValue="15" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/user_status"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="15dp"
+            android:elevation="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+            app:layout_constraintStart_toEndOf="@+id/image_preview"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout"
+            app:layout_constraintVertical_bias="0.8">
+            <CustomAttribute
+                app:attributeName="textSize"
+                app:customFloatValue="10" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/image_preview"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="@dimen/spacing_8"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout">
+            <CustomAttribute
+                app:attributeName="roundPercent"
+                app:customFloatValue="1" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/send_msg_button"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="25dp"
+            android:elevation="3dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+            app:layout_constraintEnd_toEndOf="@id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/layout_container_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/parent"
+            app:layout_constraintStart_toStartOf="@+id/parent"
+            app:layout_constraintTop_toBottomOf="@id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:elevation="@dimen/spacing_4"
+            android:padding="@dimen/spacing_10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/qr_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:layout_marginEnd="@dimen/spacing_8"
+            android:elevation="@dimen/spacing_4"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/search"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:layout_marginEnd="@dimen/spacing_8"
+            android:elevation="@dimen/spacing_4"
+            app:layout_constraintEnd_toStartOf="@id/menu"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:elevation="@dimen/spacing_4"
+            app:layout_constraintEnd_toEndOf="@id/top_bar_layout"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/layout_container_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_12"
+            app:layout_constraintEnd_toEndOf="@+id/parent"
+            app:layout_constraintStart_toStartOf="@+id/parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_container_account" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/step2">
+        <Constraint
+            android:id="@+id/top_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:elevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/user_name"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="@null"
+            android:elevation="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/image_preview"
+            app:layout_constraintStart_toEndOf="@+id/image_preview"
+            app:layout_constraintTop_toTopOf="@id/image_preview"
+            app:layout_constraintVertical_bias="0.0">
+            <CustomAttribute
+                app:attributeName="textSize"
+                app:customFloatValue="20" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/user_status"
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="15dp"
+            android:elevation="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/image_preview"
+            app:layout_constraintStart_toEndOf="@+id/image_preview"
+            app:layout_constraintTop_toTopOf="@id/image_preview"
+            app:layout_constraintVertical_bias="1">
+            <CustomAttribute
+                app:attributeName="textSize"
+                app:customFloatValue="12" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/image_preview"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="34dp"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.07"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout">
+            <CustomAttribute
+                app:attributeName="roundPercent"
+                app:customFloatValue="1" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/send_msg_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="-30dp"
+            android:layout_marginEnd="25dp"
+            android:elevation="3dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/layout_container_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/parent"
+            app:layout_constraintStart_toStartOf="@+id/parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:elevation="@dimen/spacing_4"
+            android:padding="@dimen/spacing_10"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/qr_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:layout_marginEnd="@dimen/spacing_8"
+            android:elevation="@dimen/spacing_4"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@id/search"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:layout_marginEnd="@dimen/spacing_8"
+            android:elevation="@dimen/spacing_4"
+            app:layout_constraintEnd_toStartOf="@id/menu"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:elevation="@dimen/spacing_4"
+            app:layout_constraintEnd_toEndOf="@id/top_bar_layout"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/layout_container_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_12"
+            app:layout_constraintEnd_toEndOf="@+id/parent"
+            app:layout_constraintStart_toStartOf="@+id/parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_container_account" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/step3">
+        <Constraint
+            android:id="@+id/top_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:elevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/user_name"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:elevation="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout"
+            app:layout_constraintVertical_bias="0.93">
+            <CustomAttribute
+                app:attributeName="textSize"
+                app:customFloatValue="24" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/user_status"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:elevation="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/top_bar_layout"
+            app:layout_constraintVertical_bias="0.98">
+            <CustomAttribute
+                app:attributeName="textSize"
+                app:customFloatValue="15" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/image_preview"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="0dp"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+            app:layout_constraintEnd_toEndOf="@id/top_bar_layout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/top_bar_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="@null">
+            <CustomAttribute
+                app:attributeName="roundPercent"
+                app:customFloatValue="0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/send_msg_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="-30dp"
+            android:layout_marginEnd="25dp"
+            android:elevation="3dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/layout_container_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/parent"
+            app:layout_constraintStart_toStartOf="@+id/parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:elevation="@dimen/spacing_4"
+            android:padding="@dimen/spacing_10"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/qr_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:layout_marginEnd="@dimen/spacing_8"
+            android:elevation="@dimen/spacing_4"
+            app:layout_constraintEnd_toStartOf="@id/menu"
+            app:layout_constraintTop_toTopOf="@+id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:layout_marginEnd="@dimen/spacing_8"
+            android:visibility="gone" />
+        <Constraint
+            android:id="@+id/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_4"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:elevation="@dimen/spacing_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/top_bar_layout" />
+        <Constraint
+            android:id="@+id/layout_container_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_12"
+            app:layout_constraintEnd_toEndOf="@+id/parent"
+            app:layout_constraintStart_toStartOf="@+id/parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_container_account" />
+    </ConstraintSet>
+</MotionScene>

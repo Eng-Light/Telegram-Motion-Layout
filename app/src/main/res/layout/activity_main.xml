@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motion_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_blue"
+    app:layoutDescription="@xml/activity_main_scene"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/top_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/blue_app_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/image_preview"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/me"
+        app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+        app:layout_constraintEnd_toEndOf="@id/top_bar_layout"
+        app:layout_constraintStart_toStartOf="@+id/top_bar_layout"
+        app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="@dimen/spacing_4"
+        android:contentDescription="@string/todo"
+        android:padding="@dimen/spacing_10"
+        android:src="@drawable/ic_back_arrow"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_bar_layout" />
+
+    <ImageView
+        android:id="@+id/qr_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/spacing_4"
+        android:layout_marginEnd="@dimen/spacing_8"
+        android:contentDescription="@string/todo"
+        android:padding="@dimen/spacing_10"
+        android:src="@drawable/material_symbols_qr_code_rounded"
+        app:layout_constraintEnd_toStartOf="@id/search"
+        app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+
+    <ImageView
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_4"
+        android:layout_marginEnd="@dimen/spacing_8"
+        android:contentDescription="@string/todo"
+        android:padding="@dimen/spacing_10"
+        android:src="@drawable/ic_round_search"
+        app:layout_constraintEnd_toStartOf="@id/menu"
+        app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_4"
+        android:layout_marginEnd="@dimen/spacing_10"
+        android:contentDescription="@string/todo"
+        android:paddingHorizontal="@dimen/spacing_10"
+        android:paddingVertical="@dimen/spacing_8"
+        android:src="@drawable/ic_baseline_more_vert"
+        app:layout_constraintEnd_toEndOf="@id/top_bar_layout"
+        app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:contentDescription="@string/todo"
+        android:gravity="center_vertical"
+        android:text="@string/mr_light"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+        app:layout_constraintEnd_toEndOf="@id/user_status"
+        app:layout_constraintStart_toStartOf="@id/top_bar_layout"
+        app:layout_constraintTop_toTopOf="@id/top_bar_layout" />
+
+    <TextView
+        android:id="@+id/user_status"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:gravity="start|center_vertical"
+        android:text="@string/online"
+        android:textColor="@color/white_200"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/top_bar_layout"
+        app:layout_constraintEnd_toEndOf="@id/top_bar_layout"
+        app:layout_constraintStart_toStartOf="@id/top_bar_layout"
+        app:layout_constraintTop_toTopOf="@id/user_status" />
+
+    <ImageView
+        android:id="@+id/send_msg_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circle"
+        android:contentDescription="@string/todo"
+        android:scaleType="centerInside"
+        android:src="@drawable/fluent_camera_add_48_regular" />
+
+    <LinearLayout
+        android:id="@+id/layout_container_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_blue"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/parent"
+        app:layout_constraintStart_toStartOf="@+id/parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_bar_layout">
+
+        <!-- info -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_items_text"
+            android:text="@string/account"
+            android:textColor="@color/blue_text"
+            android:textSize="@dimen/text_size_big" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_8"
+            android:layout_marginBottom="@dimen/space_items_text"
+            android:text="@string/_20_102_0506814"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tap_to_change_phone_number"
+            android:textColor="@color/white_200"
+            android:textSize="12sp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@color/dark_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_8"
+            android:layout_marginBottom="@dimen/space_items_text"
+            android:text="@string/mrlight_515"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textColor="@color/white_200"
+            android:textSize="@dimen/text_size_small" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@color/dark_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_8"
+            android:layout_marginBottom="@dimen/space_items_text"
+            android:text="@string/bio"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_a_few_words_about_yourself"
+            android:textColor="@color/white_200"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_container_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_12"
+        android:background="@color/white_blue"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/parent"
+        app:layout_constraintStart_toStartOf="@+id/parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_container_account">
+
+        <!-- info -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_items_text"
+            android:text="@string/settings"
+            android:textColor="@color/blue_text"
+            android:textSize="@dimen/text_size_big" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/spacing_12"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/spacing_12"
+            android:text="@string/chat_settings"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:drawableStartCompat="@drawable/bi_chat" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@color/dark_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/spacing_12"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/spacing_12"
+            android:text="@string/privacy_and_security"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:drawableStartCompat="@drawable/mdi_lock_outline" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@color/dark_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/spacing_12"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/spacing_12"
+            android:text="@string/notification_and_sounds"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:drawableStartCompat="@drawable/clarity_notification_line" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@color/dark_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/spacing_12"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/spacing_12"
+            android:text="@string/data_and_storage"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:drawableStartCompat="@drawable/carbon_chart_pie" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@color/dark_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/spacing_12"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/spacing_12"
+            android:text="@string/power_saving"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:drawableStartCompat="@drawable/iconoir_battery_charging" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@color/dark_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/spacing_12"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/spacing_12"
+            android:text="@string/chat_folder"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:drawableStartCompat="@drawable/material_symbols_folder_outline_rounded" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@color/dark_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/spacing_12"
+            android:gravity="center_vertical"
+            android:paddingVertical="@dimen/spacing_12"
+            android:text="@string/devices"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_normal"
+            app:drawableStartCompat="@drawable/ic_round_devices" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:dividerColor="@color/dark_blue" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="@dimen/spacing_12">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_outline_language" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:gravity="center_vertical"
+                android:text="@string/language"
+                android:textColor="@color/white" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/space_items_text"
+                android:text="@string/english"
+                android:textColor="@color/blue_text"
+                android:textSize="@dimen/text_size_big" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
